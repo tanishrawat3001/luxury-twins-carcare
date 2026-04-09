@@ -1,0 +1,104 @@
+.before-after-section {
+  background-color: var(--secondary-color);
+  padding: 6rem 0;
+}
+
+.before-after-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+.ba-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+.img-after, .img-before {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.img-after {
+  z-index: 0;
+}
+
+.img-before-clipper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* Crucial: Uses the CSS variable --clip passed from JS to perfectly mask the image without recalculating widths */
+  clip-path: polygon(0 0, var(--clip) 0, var(--clip) 100%, 0 100%);
+}
+
+.ba-label {
+  position: absolute;
+  top: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--text-primary);
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.label-before {
+  left: 20px;
+}
+
+.label-after {
+  right: 20px;
+  z-index: 0; /* Keeps it behind the clipper so the Before clipper covers it until unveiled */
+}
+
+.ba-slider-line {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--accent-gold);
+  z-index: 5;
+  left: var(--clip);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ba-slider-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+.ba-slider-button svg {
+  width: 22px;
+  height: 22px;
+  color: var(--primary-color);
+}
