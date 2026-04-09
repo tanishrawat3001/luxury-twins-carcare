@@ -16,10 +16,10 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="about-image-primary">
-            <img src="/service_engine_1775753055793.png" alt="Workshop Garage" />
+            <img src="./service_engine_1775753055793.png" alt="Workshop Garage" />
           </div>
           <div className="about-image-secondary">
-            <img src="/gallery_interior_1775754384083.png" alt="Luxury Interior Detail" />
+            <img src="./gallery_interior_1775754384083.png" alt="Luxury Interior Detail" />
           </div>
           <div className="about-experience-badge">
             <h3>10+</h3>

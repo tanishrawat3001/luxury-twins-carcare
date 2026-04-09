@@ -50,7 +50,7 @@ const Navbar = () => {
                 <h4>Exclusive Gallery</h4>
                 <p>View our recently transformed luxury vehicles.</p>
                 <a href="#gallery" className="mega-img-link">
-                  <img src="/service_detailing_1775753088659.png" alt="Showcase" />
+                  <img src="./service_detailing_1775753088659.png" alt="Showcase" />
                 </a>
                 <a href="#svc-sales" style={{ borderBottom: 'none', padding: '10px 0 0 0', color: 'var(--accent-gold)' }}>🤝 Cars Buy & Sell Catalog</a>
               </div>

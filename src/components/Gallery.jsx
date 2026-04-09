@@ -7,24 +7,24 @@ const Gallery = () => {
 
   const images = [
     // Garage
-    { src: '/svc_service_1775756877049.png', alt: 'Pristine Workshop Bay', category: 'Garage' },
-    { src: '/svc_maintenance_1775756810396.png', alt: 'Performance Maintenance', category: 'Garage' },
-    { src: '/svc_suspension_1775756969871.png', alt: 'Suspension & Undercarriage', category: 'Garage' },
-    { src: '/gallery_brakes_1775754348321.png', alt: 'Premium Brake Inspection', category: 'Garage' },
-    { src: '/gallery_interior_1775754384083.png', alt: 'Luxury Interior Cleaning', category: 'Garage' },
+    { src: './svc_service_1775756877049.png', alt: 'Pristine Workshop Bay', category: 'Garage' },
+    { src: './svc_maintenance_1775756810396.png', alt: 'Performance Maintenance', category: 'Garage' },
+    { src: './svc_suspension_1775756969871.png', alt: 'Suspension & Undercarriage', category: 'Garage' },
+    { src: './gallery_brakes_1775754348321.png', alt: 'Premium Brake Inspection', category: 'Garage' },
+    { src: './gallery_interior_1775754384083.png', alt: 'Luxury Interior Cleaning', category: 'Garage' },
 
     // Diagnosis
-    { src: '/svc_diagnostic_1775756827596.png', alt: 'Digital Scanner OBD', category: 'Diagnosis' },
-    { src: '/svc_inspection_1775756936956.png', alt: 'Pre-Purchase Inspection', category: 'Diagnosis' },
+    { src: './svc_diagnostic_1775756827596.png', alt: 'Digital Scanner OBD', category: 'Diagnosis' },
+    { src: './svc_inspection_1775756936956.png', alt: 'Pre-Purchase Inspection', category: 'Diagnosis' },
 
     // Engine
-    { src: '/svc_engine_1775756918358.png', alt: 'V8 Engine Block Rebuild', category: 'Engine' },
-    { src: '/service_engine_1775753055793.png', alt: 'Engine Bay Detailing', category: 'Engine' },
-    { src: '/svc_transmission_1775756893286.png', alt: 'Complex Transmission Gears', category: 'Engine' },
+    { src: './svc_engine_1775756918358.png', alt: 'V8 Engine Block Rebuild', category: 'Engine' },
+    { src: './service_engine_1775753055793.png', alt: 'Engine Bay Detailing', category: 'Engine' },
+    { src: './svc_transmission_1775756893286.png', alt: 'Complex Transmission Gears', category: 'Engine' },
 
     // Paint & Body
-    { src: '/gallery_wax_1775754367229.png', alt: 'Car Waxing and Polishing', category: 'Paint & Body' },
-    { src: '/service_detailing_1775753088659.png', alt: 'Ceramic Coating Finish', category: 'Paint & Body' }
+    { src: './gallery_wax_1775754367229.png', alt: 'Car Waxing and Polishing', category: 'Paint & Body' },
+    { src: './service_detailing_1775753088659.png', alt: 'Ceramic Coating Finish', category: 'Paint & Body' }
   ];
 
   const categories = ['All', 'Garage', 'Diagnosis', 'Engine', 'Paint & Body'];
