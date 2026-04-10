@@ -5,6 +5,7 @@ import AboutUs from '../components/AboutUs';
 import SpecializedIn from '../components/SpecializedIn';
 import Services from '../components/Services';
 import Gallery from '../components/Gallery';
+import ContactForm from '../components/ContactForm';
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <SpecializedIn />
       <Services />
       <Gallery />
+      <ContactForm />
     </div>
   );
 };

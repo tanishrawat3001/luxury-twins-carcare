@@ -80,7 +80,7 @@ const Gallery = () => {
                 exit={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }} // The dissolve out effect
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
-                <img src={img.src} alt={img.alt} />
+                <img src={img.src} alt={img.alt} loading="lazy" />
                 <div className="gallery-overlay">
                   <span>{img.alt}</span>
                 </div>

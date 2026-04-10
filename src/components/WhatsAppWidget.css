@@ -1,0 +1,93 @@
+.whatsapp-widget {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
+  text-decoration: none;
+}
+
+.wa-icon-container {
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1);
+  overflow: hidden; /* For pulse effect boundary if needed, though usually outside */
+}
+
+/* Pulsing shadow effect */
+.wa-icon-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: -1;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.wa-icon {
+  width: 38px;
+  height: 38px;
+}
+
+.wa-hover-text {
+  position: absolute;
+  right: 75px;
+  background-color: #111;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.whatsapp-widget:hover .wa-icon-container {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.whatsapp-widget:hover .wa-hover-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-widget {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .wa-icon-container {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .wa-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  /* Disable hover text on mobile since hover doesn't exist properly */
+  .whatsapp-widget:hover .wa-hover-text {
+    display: none;
+  }
+}
