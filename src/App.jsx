@@ -1,25 +1,22 @@
 import React from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import CoreValues from './components/CoreValues';
-import AboutUs from './components/AboutUs';
-import SpecializedIn from './components/SpecializedIn';
-import Services from './components/Services';
-import Gallery from './components/Gallery';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import ServiceDetail from './pages/ServiceDetail';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-      <CoreValues />
-      <AboutUs />
-      <SpecializedIn />
-      <Services />
-      <Gallery />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/service/:id" element={<ServiceDetail />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
