@@ -1,8 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="footer" id="contact">
       {/* Premium Pre-Footer CTA */}
@@ -65,10 +81,10 @@ const Footer = () => {
           >
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">Our Story</a></li>
-              <li><a href="#services">Our Services</a></li>
-              <li><a href="#gallery">Portfolio</a></li>
+              <li><a href="#home" onClick={(e) => handleNavClick(e, 'home')}>Home</a></li>
+              <li><a href="#about" onClick={(e) => handleNavClick(e, 'about')}>Our Story</a></li>
+              <li><a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Our Services</a></li>
+              <li><a href="#gallery" onClick={(e) => handleNavClick(e, 'gallery')}>Portfolio</a></li>
             </ul>
           </motion.div>
 

@@ -68,7 +68,15 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <a href="tel:+919354627795" className="btn btn-primary">Call Now +91 93546 27795</a>
-          <a href="#services" className="btn btn-secondary">Explore Services</a>
+          <a href="#services" 
+             className="btn btn-secondary"
+             onClick={(e) => {
+               e.preventDefault();
+               document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+             }}
+          >
+            Explore Services
+          </a>
         </motion.div>
       </motion.div>
     </section>
