@@ -58,7 +58,16 @@ const AboutUs = () => {
             </ul>
           </div>
 
-          <a href="#services" className="btn btn-primary" style={{ marginTop: '1rem' }}>Discover Our Services</a>
+          <a href="#services" 
+             className="btn btn-primary" 
+             style={{ marginTop: '1rem' }}
+             onClick={(e) => {
+               e.preventDefault();
+               document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+             }}
+          >
+            Discover Our Services
+          </a>
 
         </motion.div>
       </div>
