@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
+    setIsMobileMenuOpen(false); // Close mobile menu on click
     if (location.pathname !== '/') {
       navigate('/');
       // Allow React to mount the Home component before searching for the ID
@@ -19,20 +22,37 @@ const Navbar = () => {
     }
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="container nav-container">
         <div className="logo">
-          <Link to="/" onClick={() => window.scrollTo(0,0)} style={{ textDecoration: 'none' }}>
+          <Link to="/" onClick={() => { window.scrollTo(0,0); setIsMobileMenuOpen(false); }} style={{ textDecoration: 'none' }}>
             <h2>LUXURY<span>TWINS</span></h2>
           </Link>
         </div>
-        <ul className="nav-links">
+
+        {/* Hamburger Icon */}
+        <div className="mobile-toggle" onClick={toggleMobileMenu}>
+          {isMobileMenuOpen ? '✕' : '☰'}
+        </div>
+
+        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
           <li><a href="#home" onClick={(e) => handleNavClick(e, 'home')}>Home</a></li>
           <li><a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About Us</a></li>
           
-          <li className="dropdown">
-            <a href="#services" onClick={(e) => handleNavClick(e, 'services')} className="dropbtn">Services <span className="arrow">▼</span></a>
+          <li className={`dropdown ${isServicesOpen ? 'mobile-open' : ''}`}>
+            <a href="#services" onClick={(e) => {
+              if (window.innerWidth <= 900) {
+                e.preventDefault();
+                setIsServicesOpen(!isServicesOpen);
+              } else {
+                handleNavClick(e, 'services');
+              }
+            }} className="dropbtn">Services <span className="arrow">▼</span></a>
             
             {/* Mega Menu Dropdown */}
             <div className="mega-menu">
@@ -68,10 +88,10 @@ const Navbar = () => {
               <div className="mega-column highlight-col">
                 <h4>Exclusive Gallery</h4>
                 <p>View our recently transformed luxury vehicles.</p>
-                <Link to="/service/svc-ceramic" className="mega-img-link">
+                <Link to="/service/svc-ceramic" onClick={() => setIsMobileMenuOpen(false)} className="mega-img-link">
                   <img src="./service_detailing_1775753088659.png" alt="Showcase" />
                 </Link>
-                <Link to="/service/svc-sales" style={{ borderBottom: 'none', padding: '10px 0 0 0', color: 'var(--accent-gold)' }}>🤝 Cars Buy & Sell Catalog</Link>
+                <Link to="/service/svc-sales" onClick={() => setIsMobileMenuOpen(false)} style={{ borderBottom: 'none', padding: '10px 0 0 0', color: 'var(--accent-gold)' }}>🤝 Cars Buy & Sell Catalog</Link>
               </div>
             </div>
           </li>
