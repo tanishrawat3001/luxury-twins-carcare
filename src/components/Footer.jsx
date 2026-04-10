@@ -94,10 +94,6 @@ const Footer = () => {
           >
             <h3>Get In Touch</h3>
             <div className="contact-item">
-              <span className="contact-icon">📍</span>
-              <p>123 Luxury Lane, Auto District, Gurgaon NCR, India</p>
-            </div>
-            <div className="contact-item">
               <span className="contact-icon">📞</span>
               <p><a href="tel:+919354627795" className="hover-gold">+91 93546 27795</a></p>
             </div>
