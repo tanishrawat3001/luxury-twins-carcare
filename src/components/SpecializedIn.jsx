@@ -11,7 +11,14 @@ const SpecializedIn = () => {
     { name: "MERCEDES", icon: "mercedes" },
     { name: "BMW", icon: "bmw" },
     { name: "AUDI", icon: "audi" },
-    { name: "LAND ROVER", icon: "landrover" }
+    { name: "LAND ROVER", icon: "landrover" },
+    { name: "LAMBORGHINI", icon: "lamborghini" },
+    { name: "FERRARI", icon: "ferrari" },
+    { name: "MG", icon: "mg" },
+    { name: "SKODA", icon: "skoda" },
+    { name: "VOLKSWAGEN", icon: "volkswagen" },
+    { name: "MAHINDRA", icon: "mahindra" },
+    { name: "KIA", icon: "kia" }
   ];
 
   return (
