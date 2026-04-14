@@ -39,11 +39,11 @@ const AboutUs = () => {
             <span className="accent-line"></span>
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '0.5rem' }}>About <span>Us</span></h2>
           </div>
-          <p className="about-subtitle">Leading Car Repair & Service Center in Gurgaon</p>
+          <p className="about-subtitle">Leading Car Repair & Service Center with 10 locations across Delhi NCR</p>
           
           <div className="about-text-blocks">
             <p>
-              With over 10+ years in providing Exceptional Services to more than 10,000 customers all over Gurgaon NCR, Luxury Twins Car Care was built on a simple philosophy: a premium vehicle demands a premium class of service. Specialized artisans understand the intricate engineering behind the world's most prestigious automotive brands.
+              With over 10+ years in providing Exceptional Services to more than 10,000 customers across our 10 locations all over Delhi NCR, Luxury Twins Car Care was built on a simple philosophy: a premium vehicle demands a premium class of service. Specialized artisans understand the intricate engineering behind the world's most prestigious automotive brands.
             </p>
             <p>
               By combining state-of-the-art diagnostic equipment with industry-leading manual techniques, our factory-trained specialists ensure your vehicle performs flawlessly. Unmatched transparency and integrity are at the core of everything we do.
@@ -52,7 +52,7 @@ const AboutUs = () => {
 
           <div className="about-highlights">
             <ul>
-              <li><span className="check-icon">✓</span> 10,000+ Customers All Over Gurgaon NCR</li>
+              <li><span className="check-icon">✓</span> 10,000+ Customers Across 10 Locations in Delhi NCR</li>
               <li><span className="check-icon">✓</span> 100% Genuine OEM Parts</li>
               <li><span className="check-icon">✓</span> Unmatched Transparency</li>
             </ul>
