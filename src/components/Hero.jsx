@@ -67,7 +67,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <a href="tel:+919354627795" className="btn btn-primary">Call Now +91 93546 27795</a>
+          <a href="tel:+918796081172" className="btn btn-primary">Call Now +91 87960 81172</a>
           <a href="#services" 
              className="btn btn-secondary"
              onClick={(e) => {

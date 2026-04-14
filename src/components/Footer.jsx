@@ -41,7 +41,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <a href="tel:+919354627795" className="btn btn-gold-solid">Book an Appointment</a>
+            <a href="tel:+918796081172" className="btn btn-gold-solid">Book an Appointment</a>
           </motion.div>
         </div>
       </div>
@@ -111,7 +111,7 @@ const Footer = () => {
             <h3>Get In Touch</h3>
             <div className="contact-item">
               <span className="contact-icon">📞</span>
-              <p><a href="tel:+919354627795" className="hover-gold">+91 93546 27795</a></p>
+              <p><a href="tel:+918796081172" className="hover-gold">+91 87960 81172</a></p>
             </div>
             <div className="contact-item">
               <span className="contact-icon">✉️</span>

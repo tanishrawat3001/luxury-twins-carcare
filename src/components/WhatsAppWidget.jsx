@@ -4,7 +4,7 @@ import './WhatsAppWidget.css';
 const WhatsAppWidget = () => {
   return (
     <a 
-      href="https://wa.me/919354627795?text=Hello%20Luxury%20Twins!%20I%20would%20like%20to%20book%20a%20car%20service." 
+      href="https://wa.me/918796081172?text=Hello%20Luxury%20Twins!%20I%20would%20like%20to%20book%20a%20car%20service." 
       target="_blank" 
       rel="noopener noreferrer" 
       className="whatsapp-widget"

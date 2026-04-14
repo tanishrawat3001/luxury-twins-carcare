@@ -81,7 +81,7 @@ const ServiceDetail = () => {
           <div className="contact-box">
             <h3>Book This Service</h3>
             <p>Call directly for VIP scheduling and precise estimations.</p>
-            <a href="tel:+919354627795" className="btn btn-primary full-width">Call: +91 93546 27795</a>
+            <a href="tel:+918796081172" className="btn btn-primary full-width">Call: +91 87960 81172</a>
             <div className="whatsapp-link">
               Or <a href="#whatsapp">Message us on WhatsApp</a>
             </div>

@@ -100,7 +100,7 @@ const Navbar = () => {
           <li><a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact Us</a></li>
         </ul>
         <div className="nav-cta">
-          <a href="tel:+919354627795" className="btn btn-primary">Call Now</a>
+          <a href="tel:+918796081172" className="btn btn-primary">Call Now</a>
         </div>
       </div>
     </nav>
