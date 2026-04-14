@@ -1,84 +1,81 @@
 import React, { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import './Hero.css';
 
 const Hero = () => {
-  const heroRef = useRef(null);
-
-  // Motion values to track mouse position (-1 to 1)
+  const containerRef = useRef(null);
+  
+  // Motion values to track mouse position
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth out the mouse values with a spring physics configuration
-  const springX = useSpring(mouseX, { stiffness: 60, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 60, damping: 20 });
+  // Smooth springs for mouse movement
+  const springConfig = { damping: 40, stiffness: 100, mass: 1 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
 
-  // Map the smooth spring values to translation pixel/percentage values
-  // Background moves slightly opposite to the mouse
-  const bgX = useTransform(springX, [-1, 1], ['-2%', '2%']);
-  const bgY = useTransform(springY, [-1, 1], ['-2%', '2%']);
+  // Background and floating element parallax transforms
+  const backgroundX = useTransform(smoothX, [-0.5, 0.5], [-20, 20]);
+  const backgroundY = useTransform(smoothY, [-0.5, 0.5], [-20, 20]);
+  
+  const midgroundX = useTransform(smoothX, [-0.5, 0.5], [-50, 50]);
+  const midgroundY = useTransform(smoothY, [-0.5, 0.5], [-50, 50]);
 
-  // Typography/Foreground moves slightly towards the mouse
-  const textX = useTransform(springX, [-1, 1], ['2%', '-2%']);
-  const textY = useTransform(springY, [-1, 1], ['2%', '-2%']);
-
-  // Floating shape layers (midground) move at different speeds
-  const shape1X = useTransform(springX, [-1, 1], ['-4%', '4%']);
-  const shape1Y = useTransform(springY, [-1, 1], ['-4%', '4%']);
-  const shape2X = useTransform(springX, [-1, 1], ['3%', '-3%']);
-  const shape2Y = useTransform(springY, [-1, 1], ['3%', '-3%']);
+  const foregroundX = useTransform(smoothX, [-0.5, 0.5], [-15, 15]);
+  const foregroundY = useTransform(smoothY, [-0.5, 0.5], [-15, 15]);
 
   const handleMouseMove = (e) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    // Calculate normalized position (-1 to 1 based on center)
-    const xPos = (e.clientX - rect.left - centerX) / centerX;
-    const yPos = (e.clientY - rect.top - centerY) / centerY;
-
-    mouseX.set(xPos);
-    mouseY.set(yPos);
+    if (!containerRef.current) return;
+    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
+    // Calculate normalized coordinates (-0.5 to +0.5)
+    const x = (e.clientX - left) / width - 0.5;
+    const y = (e.clientY - top) / height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
   };
 
   const handleMouseLeave = () => {
-    // Return to center when mouse leaves
     mouseX.set(0);
     mouseY.set(0);
   };
 
   return (
     <section 
-      className="hero parallax-hero" 
+      className="hero" 
       id="home"
-      ref={heroRef}
+      ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       
-      {/* Background Layer */}
+      {/* Dynamic Background Image */}
       <motion.div 
         className="hero-background-container"
-        style={{ x: bgX, y: bgY }}
+        style={{ x: backgroundX, y: backgroundY }}
       >
         <img
-          src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=1920&q=80"
+          src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1920&q=80"
           alt="Luxury Car Background"
           className="hero-bg-img"
         />
-        <div className="hero-overlay"></div>
       </motion.div>
 
-      {/* Abstract Glowing Floating Shapes (Depth illusion) */}
-      <motion.div className="hero-shape shape-glow-1" style={{ x: shape1X, y: shape1Y }} />
-      <motion.div className="hero-shape shape-glow-2" style={{ x: shape2X, y: shape2Y }} />
+      {/* Floating abstract decorative elements (Midground) */}
+      <motion.div 
+        className="hero-glow-orb hero-glow-orb-1"
+        style={{ x: midgroundX, y: midgroundY }}
+      />
+      <motion.div 
+        className="hero-glow-orb hero-glow-orb-2"
+        style={{ x: midgroundX, y: midgroundY }}
+      />
+
+      <div className="hero-overlay"></div>
       
-      {/* Foreground Content Layer */}
+      {/* Foreground Content */}
       <motion.div 
         className="container hero-content"
-        style={{ x: textX, y: textY }}
+        style={{ x: foregroundX, y: foregroundY }}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -86,14 +83,14 @@ const Hero = () => {
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.2, type: "spring" }}
         >
-          Premium Car Service & Detailing in <span>10 + Locations in Delhi NCR</span>
+          Premium Car Service & Detailing in Gurgaon
         </motion.h1>
         
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           Trusted by 10,000+ Customers | Pickup & Drop Available
@@ -105,16 +102,18 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <a href="#services" 
+          <a href="#contact" 
              className="btn btn-primary"
              onClick={(e) => {
                e.preventDefault();
-               document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
              }}
           >
             Book Service
           </a>
-          <a href="tel:+918796081172" className="btn btn-secondary">Call Now</a>
+          <a href="tel:+918796081172" className="btn btn-secondary">
+            Call Now
+          </a>
         </motion.div>
       </motion.div>
     </section>
