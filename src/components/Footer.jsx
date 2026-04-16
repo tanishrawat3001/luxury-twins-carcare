@@ -119,7 +119,7 @@ const Footer = () => {
             </div>
             <div className="contact-item">
               <span className="contact-icon">✉️</span>
-              <p><a href="mailto:info@luxurytwinscarcare.com" className="hover-gold">service@luxurytwins.in</a></p>
+              <p><a href="mailto:info@luxurytwinscarcare.com" className="hover-gold">info@luxurytwinscarcare.com</a></p>
             </div>
           </motion.div>
 
