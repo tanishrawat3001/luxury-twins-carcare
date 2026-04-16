@@ -5,18 +5,20 @@ import './Hero.css';
 const HERO_IMAGES = [
   `${import.meta.env.BASE_URL}hero_car_luxury_1775753031548.png`,     // Luxury Exterior
   `${import.meta.env.BASE_URL}gallery_interior_1775754384083.png`,     // Luxury Interior
-  `${import.meta.env.BASE_URL}service_detailing_1775753088659.png`      // Professional Detailing
+  `${import.meta.env.BASE_URL}service_detailing_1775753088659.png`,    // Professional Detailing
+  `${import.meta.env.BASE_URL}hero_detailing_topdown.png`,             // Premium Top-down Detailing
+  `${import.meta.env.BASE_URL}hero_car_foam.png`                      // Premium Foam Wash
 ];
 
 const Hero = () => {
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-slide every 3 seconds
+  // Auto-slide every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_IMAGES.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
