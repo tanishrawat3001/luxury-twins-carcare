@@ -1,33 +1,43 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import './Hero.css';
+
+const HERO_IMAGES = [
+  '/hero_car_luxury_1775753031548.png',     // Luxury Exterior
+  '/gallery_interior_1775754384083.png',     // Luxury Interior
+  '/service_detailing_1775753088659.png'      // Professional Detailing
+];
 
 const Hero = () => {
   const containerRef = useRef(null);
-  
-  // Motion values to track mouse position
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-slide every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_IMAGES.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Motion values to track mouse position for parallax
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth springs for mouse movement
   const springConfig = { damping: 40, stiffness: 100, mass: 1 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  // Background and floating element parallax transforms
   const backgroundX = useTransform(smoothX, [-0.5, 0.5], [-20, 20]);
   const backgroundY = useTransform(smoothY, [-0.5, 0.5], [-20, 20]);
-  
   const midgroundX = useTransform(smoothX, [-0.5, 0.5], [-50, 50]);
   const midgroundY = useTransform(smoothY, [-0.5, 0.5], [-50, 50]);
-
   const foregroundX = useTransform(smoothX, [-0.5, 0.5], [-15, 15]);
   const foregroundY = useTransform(smoothY, [-0.5, 0.5], [-15, 15]);
 
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;
     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-    // Calculate normalized coordinates (-0.5 to +0.5)
     const x = (e.clientX - left) / width - 0.5;
     const y = (e.clientY - top) / height - 0.5;
     mouseX.set(x);
@@ -47,32 +57,35 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      
-      {/* Dynamic Background Image */}
+      {/* Background Slider with Parallax */}
       <motion.div 
         className="hero-background-container"
         style={{ x: backgroundX, y: backgroundY }}
       >
-        <img
-          src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1920&q=80"
-          alt="Luxury Car Background"
-          className="hero-bg-img"
-        />
+        <AnimatePresence mode='wait'>
+          <motion.img
+            key={currentIndex}
+            src={HERO_IMAGES[currentIndex]}
+            alt={`Luxury Car ${currentIndex + 1}`}
+            className="hero-bg-img"
+            initial={{ opacity: 0, x: 50, scale: 1.1 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -50, scale: 1.05 }}
+            transition={{ 
+              duration: 1.2, 
+              ease: [0.4, 0, 0.2, 1],
+              opacity: { duration: 0.8 }
+            }}
+          />
+        </AnimatePresence>
       </motion.div>
 
-      {/* Floating abstract decorative elements (Midground) */}
-      <motion.div 
-        className="hero-glow-orb hero-glow-orb-1"
-        style={{ x: midgroundX, y: midgroundY }}
-      />
-      <motion.div 
-        className="hero-glow-orb hero-glow-orb-2"
-        style={{ x: midgroundX, y: midgroundY }}
-      />
+      {/* Floating orbs */}
+      <motion.div className="hero-glow-orb hero-glow-orb-1" style={{ x: midgroundX, y: midgroundY }} />
+      <motion.div className="hero-glow-orb hero-glow-orb-2" style={{ x: midgroundX, y: midgroundY }} />
 
       <div className="hero-overlay"></div>
       
-      {/* Foreground Content */}
       <motion.div 
         className="container hero-content"
         style={{ x: foregroundX, y: foregroundY }}
