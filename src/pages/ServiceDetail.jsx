@@ -32,7 +32,7 @@ const ServiceDetail = () => {
     <div className="service-detail-page">
       
       {/* Premium Hero Banner */}
-      <div className="service-hero" style={{ backgroundImage: `url(${service.img})` }}>
+      <div className="service-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${service.img.replace('./', '')})` }}>
         <div className="service-hero-overlay"></div>
         <div className="container">
           <motion.div 
@@ -96,7 +96,10 @@ const ServiceDetail = () => {
           <div className="explore-grid">
             {otherServices.map(svc => (
               <Link to={`/service/${svc.id}`} className="explore-card" key={svc.id}>
-                <div className="explore-img" style={{ backgroundImage: `url(${svc.img})` }}></div>
+                <div 
+                  className="explore-img" 
+                  style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${svc.img.replace('./', '')})` }}
+                ></div>
                 <div className="explore-txt">
                   <h4>{svc.title}</h4>
                   <span>Discover &rarr;</span>

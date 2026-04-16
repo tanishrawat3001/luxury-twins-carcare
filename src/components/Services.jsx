@@ -37,7 +37,7 @@ const Services = () => {
             <Link to={`/service/${svc.id}`} className="slide-card" key={svc.id} style={{ textDecoration: 'none' }}>
               <div 
                 className="slide-bg" 
-                style={{ backgroundImage: `url(${svc.img})` }}
+                style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${svc.img.replace('./', '')})` }}
               ></div>
               <div className="slide-overlay">
                 <div className="slide-content">

@@ -3,9 +3,9 @@ import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from
 import './Hero.css';
 
 const HERO_IMAGES = [
-  '/hero_car_luxury_1775753031548.png',     // Luxury Exterior
-  '/gallery_interior_1775754384083.png',     // Luxury Interior
-  '/service_detailing_1775753088659.png'      // Professional Detailing
+  `${import.meta.env.BASE_URL}hero_car_luxury_1775753031548.png`,     // Luxury Exterior
+  `${import.meta.env.BASE_URL}gallery_interior_1775754384083.png`,     // Luxury Interior
+  `${import.meta.env.BASE_URL}service_detailing_1775753088659.png`      // Professional Detailing
 ];
 
 const Hero = () => {
