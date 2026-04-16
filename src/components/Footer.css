@@ -163,9 +163,7 @@
   border-bottom: none;
 }
 
-.closed {
-  color: var(--accent-gold);
-}
+
 
 /* Contact Details */
 .contact-item {
