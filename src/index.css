@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;800&display=swap');
 
 :root {
-  --primary-color: #000000;
+  --primary-color: #050505;
   --secondary-color: #111111;
-  --accent-gold: #f5c518;
-  --accent-teal: #43b1e3;
+  --accent-gold: #D4AF37;
+  --accent-gold-light: #F4D03F;
   --text-primary: #ffffff;
-  --text-secondary: #cccccc;
+  --text-secondary: #aaaaaa;
   --font-family: 'Outfit', 'Inter', sans-serif;
 }
 
@@ -74,15 +74,26 @@ ul {
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--accent-teal);
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--accent-gold);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  backdrop-filter: blur(4px);
 }
 
 .btn-secondary:hover {
-  background-color: var(--accent-teal);
+  background-color: var(--accent-gold);
   color: var(--primary-color);
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .section {
@@ -98,5 +109,5 @@ ul {
 }
 
 .section-title span {
-  color: var(--accent-teal);
+  color: var(--accent-gold);
 }

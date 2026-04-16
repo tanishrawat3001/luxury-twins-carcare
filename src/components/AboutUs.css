@@ -121,7 +121,7 @@
 .accent-line {
   width: 50px;
   height: 3px;
-  background-color: var(--accent-teal);
+  background-color: var(--accent-gold);
   display: block;
 }
 
@@ -171,7 +171,7 @@
 }
 
 .check-icon {
-  color: var(--accent-teal);
+  color: var(--accent-gold);
   font-weight: bold;
   font-size: 1.2rem;
   background: rgba(67, 177, 227, 0.1);

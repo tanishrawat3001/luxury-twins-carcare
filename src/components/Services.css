@@ -37,9 +37,7 @@
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  cursor: pointer;
   scroll-snap-align: center; /* Ensures it perfectly aligns when scrolling ends */
   
   /* Added specific styling to handle anchor hash jumping seamlessly */
@@ -108,8 +106,8 @@
 
 /* Extra aesthetic touch: Add a glowing target border if the card is actively targeted by the URL */
 .slide-card:target {
-  border: 2px solid var(--accent-teal);
-  box-shadow: 0 0 30px rgba(67, 177, 227, 0.4);
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
 }
 
 /* Call to action instruction */
