@@ -96,7 +96,13 @@ const Footer = () => {
           >
             <h3>Business Hours</h3>
             <ul className="hours-block">
-              <li className="single-line-hours">Monday to Sunday: 9:00 AM - 7:00 PM</li>
+              <li><span>Monday</span> <span>9:00 AM – 7:00 PM</span></li>
+              <li><span>Tuesday</span> <span>9:00 AM – 7:00 PM</span></li>
+              <li><span>Wednesday</span> <span>9:00 AM – 7:00 PM</span></li>
+              <li><span>Thursday</span> <span>9:00 AM – 7:00 PM</span></li>
+              <li><span>Friday</span> <span>9:00 AM – 7:00 PM</span></li>
+              <li><span>Saturday</span> <span>9:00 AM – 7:00 PM</span></li>
+              <li><span>Sunday</span> <span>9:00 AM – 7:00 PM</span></li>
             </ul>
           </motion.div>
 
