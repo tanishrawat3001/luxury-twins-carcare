@@ -151,16 +151,9 @@
 }
 
 .hours-block li {
-  display: flex;
-  justify-content: space-between;
   color: var(--text-secondary);
   font-size: 0.95rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 10px;
-}
-
-.hours-block li:last-child {
-  border-bottom: none;
+  padding-bottom: 5px;
 }
 
 
